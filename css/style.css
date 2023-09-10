@@ -150,9 +150,6 @@ div#quote span:first-child {
   display: block;
   padding: 5px;
 }
-div#quote span:last-child::before {
-  content: " - ";
-}
 
 /* weather */
 div#weather {
