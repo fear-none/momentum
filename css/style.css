@@ -1,3 +1,163 @@
+@import "reset.css";
+
 .hidden {
   display: none;
+}
+
+@font-face {
+  font-family: 'OAGothic-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cafe24SsurroundAir';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Cafe24SsurroundAir';
+}
+
+/* clock */
+h2#clock {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: 'OAGothic-ExtraBold';
+  font-size: 4.5em;
+  text-shadow: 2px 4px 6px #292929;
+}
+
+/* login-form, greeting */
+#login-form, h1#greeting {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: 'Cafe24Ssurround';
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+}
+
+#login-form input[type="text"] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  font-size: 18px;
+  width: 30%;
+}
+
+#login-form input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+#login-form input[type="text"]:focus {
+  color: #ffffff;
+  outline: none;
+}
+
+#login-form input[type="submit"] {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#login-form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+/* todo-form */
+form#todo-form {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form#todo-form input[type="text"] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  width: 200px;
+  text-align: center;
+  color: #ffffff;
+}
+
+form#todo-form input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+form#todo-form input[type="text"]:focus {
+  outline: none;;
+}
+
+/* todo-list */
+ul#todo-list {
+  position: absolute;
+  bottom: 5%;
+  left: 1%;
+  width: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+ul#todo-list li button {
+  border: none;
+  background: none;
+}
+
+ul#todo-list li button:hover {
+  cursor: pointer;
+}
+
+/* quote */
+div#quote {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  text-shadow: 2px 2px 6px gray;
+  font-size: 14px;
+}
+
+div#quote span:first-child {
+  display: block;
+  padding: 5px;
+}
+div#quote span:last-child::before {
+  content: " - ";
+}
+
+/* weather */
+div#weather {
+  position: absolute;
+  top: 3%;
+  right: 1%;
+  color: #ffffff;
 }
