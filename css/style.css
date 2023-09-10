@@ -157,7 +157,26 @@ div#quote span:last-child::before {
 /* weather */
 div#weather {
   position: absolute;
-  top: 3%;
+  top: 1%;
   right: 1%;
   color: #ffffff;
+  text-align: right;
+  text-shadow: 1px 2px 3px #414141;
+}
+
+div#weather img {
+  width: 50px;
+  height: auto;
+  vertical-align: middle;
+}
+
+div#weather span:nth-child(2) {
+  font-size: 24px;
+}
+
+div#weather span:last-child {
+  font-size: 14px;
+  display: block;
+  position: relative;
+  top: -10px;
 }
