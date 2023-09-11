@@ -3,6 +3,9 @@ const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
+const SQUARE_CLASSNAME = "fa-regular fa-square";
+const SQUARE_CHECK_CLASSNAME = "fa-regular fa-square-check";
+const DONE_CLASSNAME = "done";
 
 let toDos = [];
 
@@ -12,10 +15,27 @@ function saveToDos() {
 
 function deleteToDo(event) {
   const li = event.target.parentElement;
-  // console.log(li.id);
   li.remove();
-  // console.log(typeof li.id);
   toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+  saveToDos();
+}
+
+function checkToDo(event) {
+  const li = event.target.parentElement;
+  const i = event.target;
+  const span = li.querySelector("span");
+  if (i.className === SQUARE_CLASSNAME) {
+    i.className = SQUARE_CHECK_CLASSNAME;
+  } else {
+    i.className = SQUARE_CLASSNAME;
+  }
+  span.classList.toggle(DONE_CLASSNAME);
+
+  toDos.forEach(toDo => {
+    if (toDo.id === parseInt(li.id)) {
+      toDo.isDone = !toDo.isDone;
+    }
+  });
   saveToDos();
 }
 
@@ -27,6 +47,15 @@ function paintToDo(newTodo) {
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
+  const i = document.createElement("i");
+  if (!newTodo.isDone) {
+    i.className = SQUARE_CLASSNAME;
+  } else {
+    i.className = SQUARE_CHECK_CLASSNAME;
+    span.className = DONE_CLASSNAME;
+  }
+  i.addEventListener("click", checkToDo);
+  li.appendChild(i);
   li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
@@ -39,6 +68,7 @@ function handleToDoSubmit(event) {
   const newTodoObj = {
     text: newTodo,
     id: Date.now(),
+    isDone: false,
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
